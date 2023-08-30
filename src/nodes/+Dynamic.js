@@ -1,5 +1,5 @@
 import { ImPure } from "@design-express/fabrica";
-import { DynComponent } from "../components/ui";
+import { DynComponent } from "../components/Dynamic";
 import { useEffect, useState } from "react";
 
 export class Dynamic extends ImPure {
