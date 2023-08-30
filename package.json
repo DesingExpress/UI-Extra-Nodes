@@ -1,6 +1,6 @@
 {
-  "name": "@user/ui-extra",
-  "version": "0.1.0",
+  "name": "@NEXIVIL/UI-Extra",
+  "version": "1.0.0",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -8,6 +8,7 @@
     "build"
   ],
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@design-express/node-scripts": "1.0.7"
   },
   "scripts": {
