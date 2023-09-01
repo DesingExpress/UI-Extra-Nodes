@@ -13,13 +13,16 @@ export class Dynamic extends ImPure {
     this.addInput("component", "component");
     this.addOutput("component", "component");
     this._dynComp = () => this.getInputData(2);
-
+    this._update = undefined;
     const that = this;
     this._useComp = function useComp(val) {
       const [state, setState] = useState();
       useEffect(() => {
-        setState(that._dynComp());
-        return () => {};
+        that._update = () => setState(that._dynComp());
+        that._update();
+        return () => {
+          that._update = undefined;
+        };
       }, []);
       return state;
     };
@@ -28,5 +31,7 @@ export class Dynamic extends ImPure {
   onExecute() {
     this.setOutputData(1, <DynComponent useComp={this._useComp} />);
   }
-  onAction() {}
+  onAction() {
+    this._update?.();
+  }
 }
